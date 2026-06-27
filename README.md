@@ -22,7 +22,7 @@ imported and used to add new languages, or change an existing one.
 None of this will change your translations files, as this class NEVER writes
 to a file.
 
-## Drawing Shape Nodes
+## Drawing shape nodes
 
 These arent the most useful, mostly just a carry over from some experements.
 They draw simple shapes, might add more =3
@@ -32,3 +32,5 @@ They draw simple shapes, might add more =3
 These nodes have some properties stripped from them.
 This is something i like to do to prevent editing of properties that are set
 via code (e.g. Setting the collision_layer and collision_mask of a CharacterBody2D).
+
+## State machines
