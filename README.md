@@ -26,3 +26,9 @@ to a file.
 
 These arent the most useful, mostly just a carry over from some experements.
 They draw simple shapes, might add more =3
+
+## Stripped nodes
+
+These nodes have some properties stripped from them.
+This is something i like to do to prevent editing of properties that are set
+via code (e.g. Setting the collision_layer and collision_mask of a CharacterBody2D).
