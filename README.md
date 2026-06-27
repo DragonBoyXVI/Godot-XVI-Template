@@ -6,3 +6,23 @@ This project is written wholey in GDScript, a CSharp counterpart can be found
 in a diffrent tepo (XVI-Template-CSharp).
 DO NOT have both this templates in the same project! They have conflicting
 names, and the assets are duped between them. Having both is redundant.
+
+## Translation importer
+
+This class allows parsing json files for translations, rather than using
+Godot's CSV system.
+
+This also allows storing other data like arrays, that can be retrived from
+the importer class. For example, you could store an array of messages, then
+pick one at random. Allowing you to have diffent messages, and a diffent 
+number of messages per language.
+
+Another use case is allowing users to make their own translations, that can be
+imported and used to add new languages, or change an existing one.
+None of this will change your translations files, as this class NEVER writes
+to a file.
+
+## Drawing Shape Nodes
+
+These arent the most useful, mostly just a carry over from some experements.
+They draw simple shapes, might add more =3
