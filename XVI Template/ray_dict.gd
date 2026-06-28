@@ -1,4 +1,5 @@
 @abstract
+@tool
 extends Object;
 class_name RayDict;
 ## Helper class for dictionaries returned by ray casting functions.

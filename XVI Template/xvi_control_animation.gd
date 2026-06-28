@@ -1,16 +1,15 @@
 @abstract
+@tool
 extends Object;
 class_name XVIControlAnimation;
 ## Global class that animates control nodes.
 ##
 ## ditto
 
+
+## Metadata name for the tween used for animation.
+## This tween is stored in the metadata of the provided node.
 const _MTWEEN := &"CurrentTween";
-
-
-## When enabled, certain animations will automatically set the conrol nodes
-## pivot point to the center. Consider disabling this if it fucks up your UI.
-static var auto_center_pivot: bool = true;
 
 
 ## Util for killing active tweens.
@@ -25,9 +24,7 @@ static func _kill_tween( control: Control ) -> void:
 ## Hides the node once the animation is finished.
 static func close_window( control: Control, duration: float = 0.125 ) -> Tween:
 	_kill_tween( control );
-	
-	if ( auto_center_pivot ):
-		control.pivot_offset_ratio = Vector2( 0.5, 0.5 );
+	control.offset_transform_enabled = true;
 	
 	var tween := control.create_tween();
 	control.set_meta( _MTWEEN, tween );
@@ -36,7 +33,7 @@ static func close_window( control: Control, duration: float = 0.125 ) -> Tween:
 	tween.set_parallel();
 	
 	tween.tween_property( control, ^"modulate", Color.TRANSPARENT, duration );
-	tween.tween_property( control, ^"scale", Vector2( 0.8, 0.8 ), duration );
+	tween.tween_property( control, ^"offset_transform_scale", Vector2( 0.8, 0.8 ), duration );
 	tween.tween_callback( control.hide ).set_delay( duration );
 	
 	return tween;
@@ -48,11 +45,8 @@ static func open_window( control: Control, stage_node: bool = true, duration: fl
 	
 	if ( stage_node ):
 		
-		control.scale = Vector2( 0.8, 0.8 );
+		control.offset_transform_scale = Vector2( 0.8, 0.8 );
 		control.modulate = Color.TRANSPARENT;
-	
-	if ( auto_center_pivot ):
-		control.pivot_offset_ratio = Vector2( 0.5, 0.5 );
 	
 	var tween := control.create_tween();
 	control.set_meta( _MTWEEN, tween );
@@ -61,7 +55,7 @@ static func open_window( control: Control, stage_node: bool = true, duration: fl
 	tween.set_parallel();
 	
 	tween.tween_property( control, ^"modulate", Color.WHITE, duration );
-	tween.tween_property( control, ^"scale", Vector2.ONE, duration );
+	tween.tween_property( control, ^"offset_transform_scale", Vector2.ONE, duration );
 	tween.tween_callback( control.show );
 	
-	return null;
+	return tween;

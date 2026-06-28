@@ -1,4 +1,5 @@
 @abstract
+@tool
 extends Object;
 class_name Direction2D;
 ## A Simple helper class for 2D directions. Both cardinal and diagnal.

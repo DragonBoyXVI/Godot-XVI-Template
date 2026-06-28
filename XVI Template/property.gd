@@ -1,4 +1,5 @@
 @abstract
+@tool
 extends Object;
 class_name Property;
 ## Helper class for property dictionaries, like those used for _validate_property.

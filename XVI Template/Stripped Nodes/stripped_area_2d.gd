@@ -24,8 +24,8 @@ func _init() -> void:
 func _ready() -> void:
 
 	if ( Engine.is_editor_hint() ):
-
-		XVIFuncs.disable_node_processes( self );
+		
+		XVIFuncs.set_node_processes( self, false );
 		return;
 
 func _validate_property( property: Dictionary ) -> void:

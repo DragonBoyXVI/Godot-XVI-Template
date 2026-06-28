@@ -29,7 +29,8 @@ var _state_cache: Dictionary[ StringName, StateGD ] = {}
 func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
-		XVIFuncs.disable_node_processes( self );
+		
+		XVIFuncs.set_node_processes( self, false );
 		return;
 	
 	var children := get_children()

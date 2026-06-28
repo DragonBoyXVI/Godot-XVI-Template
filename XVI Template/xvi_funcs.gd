@@ -1,4 +1,5 @@
 @abstract
+@tool
 extends Object;
 class_name XVIFuncs;
 ## Global class with some useful functions.
