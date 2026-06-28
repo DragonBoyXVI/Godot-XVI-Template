@@ -34,3 +34,6 @@ This is something i like to do to prevent editing of properties that are set
 via code (e.g. Setting the collision_layer and collision_mask of a CharacterBody2D).
 
 ## State machines
+
+A node based state machine implementation, generalized for most use cases.
+There is also a lite state machine for simplier non-node based use cases.
