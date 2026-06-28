@@ -6,12 +6,10 @@ class_name XVIFuncs;
 ## Destription 2 waow.
 
 
-## Disables all node processes that have a disable function.
-## Such as process, physics process, input processes, etc.
-## Useful for tool nodes, be sure to call this in _ready rather than _init.[br]
-## This effect can be reversed by using this again and passing "true" for the
-## second arg.
-static func disable_node_processes( node: Node, enabled: bool = false ) -> void:
+## Sets ALL node processes to enabled or disabled, dependig on whats given to
+## the "enabled" argument.
+## By default, this will disable all processes.
+static func set_node_processes( node: Node, enabled: bool = false ) -> void:
 	
 	node.set_process( enabled );
 	node.set_physics_process( enabled );
