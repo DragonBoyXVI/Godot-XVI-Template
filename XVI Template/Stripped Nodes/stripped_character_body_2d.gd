@@ -28,6 +28,7 @@ func _validate_property( property: Dictionary ) -> void:
 		"motion_mode",
 		"collision_layer",
 		"collision_mask",
+		"input_pickable",
 		"z_index",
 	];
 	

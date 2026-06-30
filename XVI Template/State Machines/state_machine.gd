@@ -1,7 +1,7 @@
 @icon( "uid://d1tih0h8h2lhj" )
 @tool
 extends Node;
-class_name StateMachineGD;
+class_name StateMachine;
 ## A GDScript based state machine
 ##
 ## Root of a node based state machine, can have many [StateGD] children
@@ -9,21 +9,21 @@ class_name StateMachineGD;
 
 
 ## Emitted when a state is entered
-signal state_entered( state: StateGD );
+signal state_entered( state: State );
 ## Emitted when a state is left
-signal state_left( state: StateGD );
+signal state_left( state: State );
 
 
 ## What state this starts on when readied
-@export var _initial_state: StateGD:
+@export var _initial_state: State:
 	set( new ):
 		_initial_state = new;
 		update_configuration_warnings();
 
 
-var _current_state: StateGD;
+var _current_state: State;
 ## Keep child states here
-var _state_cache: Dictionary[ StringName, StateGD ] = {}
+var _state_cache: Dictionary[ StringName, State ] = {}
 
 
 func _ready() -> void:
@@ -35,7 +35,7 @@ func _ready() -> void:
 	
 	var children := get_children()
 	for child: Node in children:
-		if ( child is StateGD ):
+		if ( child is State ):
 			_register_state( child )
 	
 	if ( _initial_state ):
@@ -51,7 +51,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 
 ## Used to ready a state for usage in the ready func
-func _register_state( state: StateGD ) -> void:
+func _register_state( state: State ) -> void:
 	
 	if ( _state_cache.has( state.name ) ):
 		push_error( "Attempting to add dupe state: ", state.name )
@@ -68,7 +68,7 @@ func change_state( state_name: StringName ) -> void:
 		push_error( "Trying to enter invalid state: ", state_name )
 		return
 	
-	var new_state: StateGD = _state_cache[ state_name ]
+	var new_state: State = _state_cache[ state_name ]
 	
 	if ( _current_state ):
 		if ( not _current_state._can_switch_state( new_state ) ):
