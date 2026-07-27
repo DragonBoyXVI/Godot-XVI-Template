@@ -1,7 +1,7 @@
 @abstract
 @icon( "uid://co7j8ckrp6x72" )
 extends Node;
-class_name StateGD;
+class_name State;
 ## A State node based in GDScript
 ##
 ## A state template thats compatable with a [GDStateMachine] node.
@@ -24,7 +24,7 @@ func _leave_state() -> void:
 
 ## Virtual for if this state can swap into a new state.
 ## By default, this stops states from transitioning into themselves.
-func _can_switch_state( state: StateGD ) -> bool:
+func _can_switch_state( state: State ) -> bool:
 	return name != state.name;
 
 ## States are enabled when they become the current state
