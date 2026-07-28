@@ -124,3 +124,23 @@ static func parse_dir_for_files( dir_path: String, search_subdirs: bool = true )
 		#print( "Translation search: ", dir.get_current_dir() + "/" + file_name );
 		
 		file_name = dir.get_next();
+
+## Same as "parse_dir_for_files" but it uses the [WorkerThreadPool]
+## to load all found files.
+static func parse_dir_with_worker_pool( dir_path: String, search_subdirs: bool = true ) -> void:
+	
+	if ( dir_path[ dir_path.length() - 1 ] == "/" ):
+		dir_path[ dir_path.length() - 1 ] = "";
+	
+	var root_dir := DirAccess.open( dir_path );
+	if ( not root_dir ):
+		push_error( "Failed to open folder: ", error_string( DirAccess.get_open_error() ) );
+		return;
+	
+	if ( search_subdirs ):
+		for dir: String in root_dir.get_directories():
+			parse_dir_with_worker_pool( dir, search_subdirs );
+	
+	var files_to_parse := root_dir.get_files();
+	var _task := func( index: int ) -> void:
+		pass
