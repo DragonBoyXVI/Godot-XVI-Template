@@ -10,12 +10,19 @@ config_version=5
 
 [application]
 
+<<<<<<< HEAD
 config/name="XVI Template"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+=======
+config/name="XVI Godot Base"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=60
+>>>>>>> 4e1f331197ac1c9ba99b07a807c37537bd16700d
 config/icon="res://icon.svg"
 
 [display]
 
+<<<<<<< HEAD
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -25,6 +32,20 @@ project/assembly_name="XVI Template"
 
 [physics]
 
+=======
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="XVi Godot Base"
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+>>>>>>> 4e1f331197ac1c9ba99b07a807c37537bd16700d
 3d/physics_engine="Jolt Physics"
 
 [rendering]
@@ -33,5 +54,11 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+<<<<<<< HEAD
 textures/decals/filter=0
 textures/light_projectors/filter=0
+=======
+textures/default_filters/use_nearest_mipmap_filter=true
+textures/default_filters/anisotropic_filtering_level=0
+2d/snap/snap_2d_transforms_to_pixel=true
+>>>>>>> 4e1f331197ac1c9ba99b07a807c37537bd16700d
