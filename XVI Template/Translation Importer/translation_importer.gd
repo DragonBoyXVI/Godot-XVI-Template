@@ -127,6 +127,7 @@ static func parse_dir_for_files( dir_path: String, search_subdirs: bool = true )
 
 ## Same as "parse_dir_for_files" but it uses the [WorkerThreadPool]
 ## to load all found files.
+## DANGER: Unfinished do not use!!!
 static func parse_dir_with_worker_pool( dir_path: String, search_subdirs: bool = true ) -> void:
 	
 	if ( dir_path[ dir_path.length() - 1 ] == "/" ):
