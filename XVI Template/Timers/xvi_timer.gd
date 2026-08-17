@@ -35,6 +35,9 @@ func _validate_property( property: Dictionary ) -> void:
 
 func _enter_tree() -> void:
 	
+	if ( Engine.is_editor_hint() ):
+		return;
+
 	if ( start_automatically ):
 		start_ext.call_deferred();
 
