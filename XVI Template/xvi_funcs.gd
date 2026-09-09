@@ -41,3 +41,12 @@ static func load_resource_coroutine( resource_path: String, type_hint: String = 
 			return null;
 	
 	return ResourceLoader.load_threaded_get( resource_path );
+
+## Converts a bpm value into a period of time measured in seconds.[br]
+## Example: 120 bpm == 0.5 seconds
+static func bpm_to_sec( bpm: float ) -> float:
+	return bpm / 60.0;
+
+## Does what bpm_to_sec does, but backwards.
+static func sec_to_bpm( sec: float ) -> float:
+	return 60.0 / sec;
